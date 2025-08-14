@@ -8,8 +8,7 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
   body { min-height:100vh; background: linear-gradient(135deg, #121b2c, #1e2a47); color:#e0e6f1; display:flex; flex-direction:column; overflow-x:hidden; }
-  
-  /* Fundo animado */
+
   body::before {
     content:""; position:fixed; inset:0;
     background: radial-gradient(circle at 20% 30%, #ff6f00aa 3%, transparent 30%),
@@ -36,23 +35,15 @@
     letter-spacing:7px; z-index:1; animation:fadeSlideIn 1.6s ease forwards; opacity:0; transform:translateY(40px);
   }
 
-  main { max-width:1100px; margin:-120px auto 60px; padding:50px 40px 70px; background:rgba(30,41,71,0.8); border-radius:32px; backdrop-filter:blur(20px); box-shadow:0 10px 40px rgba(255,111,0,0.3), inset 0 0 45px rgba(255,140,0,0.2); opacity:0; transform:translateY(40px); animation:fadeSlideIn 1.6s ease 0.8s forwards; }
+  main { max-width:1000px; margin:-120px auto 60px; padding:50px 40px 70px; background:rgba(30,41,71,0.85); border-radius:32px; backdrop-filter:blur(20px); box-shadow:0 10px 40px rgba(255,111,0,0.3), inset 0 0 45px rgba(255,140,0,0.2); opacity:0; transform:translateY(40px); animation:fadeSlideIn 1.6s ease 0.8s forwards; }
 
   main section { margin-bottom:60px; }
-  main h2 { font-family:'Orbitron',sans-serif; font-size:2.8rem; color:#ffa726; border-bottom:4px solid #ffb347; padding-bottom:14px; margin-bottom:32px; letter-spacing:3px; }
-  main p { font-size:1.25rem; line-height:1.8; color:#f0f0f0dd; margin-bottom:40px; }
+  main h2 { font-family:'Orbitron',sans-serif; font-size:2.5rem; color:#ffa726; border-bottom:3px solid #ffb347; padding-bottom:12px; margin-bottom:24px; letter-spacing:2.5px; }
+  main ul { list-style:none; margin-left:0; padding-left:20px; }
+  main li { font-size:1.2rem; line-height:1.7; margin-bottom:12px; color:#f0f0f0dd; position:relative; padding-left:24px; }
+  main li::before { content:"✔"; position:absolute; left:0; color:#ffb347; }
 
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
-  .card {
-    background:rgba(255,111,0,0.12); border:2px solid rgba(255,111,0,0.35); border-radius:28px;
-    padding:28px; box-shadow:0 0 30px rgba(255,111,0,0.22); backdrop-filter:blur(25px);
-    display:flex; flex-direction:column; align-items:flex-start; transition:transform 0.5s ease, box-shadow 0.5s ease;
-    cursor:default; animation:fadeSlideIn 1.6s ease forwards; opacity:0; transform:translateY(40px);
-  }
-  .card:hover { transform:translateY(-10px) scale(1.05); box-shadow:0 0 50px #ffb347, 0 0 100px #ffb347; }
-  .card p { font-weight:600; line-height:1.4; color:#fff; }
-
-  .btn { display:inline-block; background:linear-gradient(60deg,#ff9c1a,#ffb347,#ffa500,#ff6f00); background-size:400% 400%; color:#121212; font-weight:900; font-size:1.6rem; padding:22px 72px; border-radius:80px; text-decoration:none; text-align:center; box-shadow:0 0 30px #ffb347,0 0 60px #ff6f00,0 0 90px #ffb347; margin:0 auto; display:block; transition:all 0.45s ease; filter:drop-shadow(0 0 10px #ffb347); animation:gradientMove 8s ease infinite; }
+  .btn { display:inline-block; background:linear-gradient(60deg,#ff9c1a,#ffb347,#ffa500,#ff6f00); background-size:400% 400%; color:#121212; font-weight:900; font-size:1.6rem; padding:22px 72px; border-radius:80px; text-decoration:none; text-align:center; box-shadow:0 0 30px #ffb347,0 0 60px #ff6f00,0 0 90px #ffb347; margin:30px auto 0; display:block; transition:all 0.45s ease; filter:drop-shadow(0 0 10px #ffb347); animation:gradientMove 8s ease infinite; }
   .btn:hover { transform:scale(1.15); filter:drop-shadow(0 0 30px #ffb347); }
 
   footer { text-align:center; padding:26px 12px; background:#121b2c; color:#666; font-size:0.9rem; letter-spacing:1px; border-top:1px solid #222; user-select:none; }
@@ -60,7 +51,7 @@
   @keyframes fadeSlideIn { to { opacity:1; transform:translateY(0); } }
   @keyframes gradientMove { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
 
-  @media(max-width:880px){ main{margin:-80px 22px 50px;padding:40px 30px 60px;} main h2{font-size:2.2rem;} main p{font-size:1.15rem;} .cards{grid-template-columns:1fr;} .btn{max-width:90%; font-size:1.4rem; padding:20px 45px;} }
+  @media(max-width:880px){ main{margin:-80px 22px 50px;padding:40px 30px 60px;} main h2{font-size:2.2rem;} main li{font-size:1.1rem;} .btn{max-width:90%; font-size:1.4rem; padding:20px 45px;} }
 </style>
 </head>
 <body>
@@ -70,28 +61,28 @@
 
   <main>
     <section>
-      <h2>Domine com Segurança e Discrição</h2>
+      <h2>Domine com Segurança</h2>
       <p>Nosso ModMenu oferece proteção robusta e desempenho confiável, ideal para jogadores que buscam vantagens sem expor sua conta. Jogue com confiança total!</p>
     </section>
 
     <section>
-      <h2>Recursos Avançados</h2>
-      <div class="cards">
-        <div class="card"><p>ESP Features: Team / Enemy / Weapon / Planted C4/AI Zombie, Box [2D/3D/Corners], Line [Bot/Top/Center], Health [Bar/Text], Bone, Name, Has C4, Distance</p></div>
-        <div class="card"><p>Visual Features: CrossHair</p></div>
-        <div class="card"><p>Aimbot Features: Enable, Use 360, Use FOV, Use Smoothness, Draw Target, Mode [Nearest Crosshair/Distance], Weapon Aim Smoothness [Sniper, Rifle, SMG, Pistol, etc.], ZA/AI Mode Compatibility</p></div>
-        <div class="card"><p>Movement Features: Speed Shift [Adjustable], Jump Hacks [Unli Jump/Super Jump], Bunny Hop, Walk Through Walls</p></div>
-        <div class="card"><p>Teleport Features: Save / Load Position</p></div>
-        <div class="card"><p>Player Features: Camera Mode, Anti AFK, Anti Flash, Anti Smoke, Anti Grenade</p></div>
-        <div class="card"><p>Weapon Features: Fast Reload, Fast Melee, Fast Change, Fast Defuse, Weapon Recoil</p></div>
-        <div class="card"><p>ZA/AI Mode Features: Double Weapon Damage</p></div>
-        <div class="card"><p>Zombie Mode: Unlock All Zombie/Mutant</p></div>
-        <div class="card"><p>Settings: Disable Drawing, Save/Load/Share/Upload Configuration, Custom Show/Hide Menu Key</p></div>
-        <div class="card"><p>Extra Features: Anti Screenshot, Live Stream Proof</p></div>
-        <div class="card"><p>Operating System: Windows Home, Enterprise, Pro (Recommended), Ghost Spectre</p></div>
-        <div class="card"><p>Windows Version: 10 (20H2, 21H1, 21H2, 22H2, 23H2), 11 (21H2, 22H2, 23H2, 24H2)</p></div>
-        <div class="card"><p>Não suporta PCs com System Restore Softwares (Ex.: DeepFreeze, Shadow Mode)</p></div>
-      </div>
+      <h2>Recursos</h2>
+      <ul>
+        <li><strong>ESP Features:</strong> Team / Enemy / Weapon / Planted C4/AI Zombie, Box [2D/3D/Corners], Line [Bot/Top/Center], Health [Bar/Text], Bone, Name, Has C4, Distance</li>
+        <li><strong>Visual Features:</strong> CrossHair</li>
+        <li><strong>Aimbot Features:</strong> Enable, Use 360, Use FOV, Use Smoothness, Draw Target, Mode [Nearest Crosshair/Distance], Weapon Aim Smoothness [Sniper, Rifle, SMG, Pistol], ZA/AI Mode Compatibility</li>
+        <li><strong>Movement Features:</strong> Speed Shift, Jump Hacks, Bunny Hop, Walk Through Walls</li>
+        <li><strong>Teleport Features:</strong> Save / Load Position</li>
+        <li><strong>Player Features:</strong> Camera Mode, Anti AFK, Anti Flash, Anti Smoke, Anti Grenade</li>
+        <li><strong>Weapon Features:</strong> Fast Reload, Fast Melee, Fast Change, Fast Defuse, Weapon Recoil</li>
+        <li><strong>ZA/AI Mode Features:</strong> Double Weapon Damage</li>
+        <li><strong>Zombie Mode:</strong> Unlock All Zombie/Mutant</li>
+        <li><strong>Settings:</strong> Disable Drawing, Save/Load/Share/Upload Configuration, Custom Show/Hide Menu Key</li>
+        <li><strong>Extra Features:</strong> Anti Screenshot, Live Stream Proof</li>
+        <li><strong>Operating System:</strong> Windows Home, Enterprise, Pro (Recommended), Ghost Spectre</li>
+        <li><strong>Windows Version:</strong> 10 (20H2,21H1,21H2,22H2,23H2), 11 (21H2,22H2,23H2,24H2)</li>
+        <li><strong>Não suporta:</strong> PCs com System Restore Softwares (Ex.: DeepFreeze, Shadow Mode)</li>
+      </ul>
     </section>
 
     <section>
