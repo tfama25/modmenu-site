@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" >
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,8 +22,6 @@
     -moz-osx-font-smoothing: grayscale;
     position: relative;
   }
-
-  /* Fundo animado com partículas */
   body::before {
     content: "";
     position: fixed;
@@ -34,17 +32,10 @@
     z-index: -2;
   }
   @keyframes moveBackground {
-    0% {
-      background-position: 20% 30%, 80% 70%;
-    }
-    50% {
-      background-position: 25% 35%, 75% 65%;
-    }
-    100% {
-      background-position: 20% 30%, 80% 70%;
-    }
+    0% { background-position: 20% 30%, 80% 70%; }
+    50% { background-position: 25% 35%, 75% 65%; }
+    100% { background-position: 20% 30%, 80% 70%; }
   }
-
   header {
     position: relative;
     padding: 90px 20px 110px;
@@ -69,36 +60,27 @@
     font-family: 'Orbitron', sans-serif;
     font-size: 4.6rem;
     color: #ff9c1a;
-    text-shadow:
-      0 0 20px #ff9c1a,
-      0 0 50px #ff6f00,
-      0 0 80px #ffb347;
+    text-shadow: 0 0 20px #ff9c1a, 0 0 50px #ff6f00, 0 0 80px #ffb347;
     letter-spacing: 7px;
     z-index: 1;
     animation: fadeSlideIn 1.6s ease forwards;
     opacity: 0;
     transform: translateY(40px);
   }
-
   main {
     max-width: 980px;
     margin: -110px auto 60px auto;
     padding: 50px 40px 70px;
     background: rgba(30, 41, 71, 0.75);
     border-radius: 32px;
-    box-shadow:
-      0 10px 40px rgba(255,111,0,0.3),
-      inset 0 0 45px rgba(255,140,0,0.2);
+    box-shadow: 0 10px 40px rgba(255,111,0,0.3), inset 0 0 45px rgba(255,140,0,0.2);
     backdrop-filter: blur(20px);
     color: #e0e6f1dd;
     animation: fadeSlideIn 1.6s ease 0.8s forwards;
     opacity: 0;
     transform: translateY(40px);
   }
-
-  main section {
-    margin-bottom: 50px;
-  }
+  main section { margin-bottom: 50px; }
   main h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.8rem;
@@ -115,8 +97,6 @@
     margin-bottom: 40px;
     color: #f0f0f0dd;
   }
-
-  /* Cards container */
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -127,8 +107,7 @@
     background: rgba(255,111,0,0.12);
     border: 2.5px solid rgba(255,111,0,0.35);
     border-radius: 28px;
-    box-shadow:
-      0 0 30px rgba(255,111,0,0.22);
+    box-shadow: 0 0 30px rgba(255,111,0,0.22);
     padding: 35px 28px 38px;
     flex: 1 1 300px;
     max-width: 340px;
@@ -144,32 +123,12 @@
     opacity: 0;
     transform: translateY(40px);
   }
-  .card:nth-child(2) { animation-delay: 1.5s; }
-  .card:nth-child(3) { animation-delay: 1.6s; }
-  .card:nth-child(4) { animation-delay: 1.7s; }
-  .card:nth-child(5) { animation-delay: 1.8s; }
-  .card:hover {
-    transform: translateY(-14px) scale(1.05) rotateZ(1deg);
-    box-shadow:
-      0 0 50px #ffb347,
-      0 0 100px #ffb347;
-  }
-  .card svg {
-    width: 40px;
-    height: 40px;
-    fill: #ffb347;
-    margin-bottom: 22px;
-    filter: drop-shadow(0 0 6px #ffb347);
-    flex-shrink: 0;
-  }
   .card p {
     font-weight: 700;
     font-size: 1.15rem;
     line-height: 1.3;
     user-select: none;
   }
-
-  /* Button */
   .btn {
     display: inline-block;
     background: linear-gradient(60deg, #ff9c1a, #ffb347, #ffa500, #ff6f00);
@@ -180,10 +139,7 @@
     padding: 22px 72px;
     border-radius: 80px;
     text-decoration: none;
-    box-shadow:
-      0 0 30px #ffb347,
-      0 0 60px #ff6f00,
-      0 0 90px #ffb347;
+    box-shadow: 0 0 30px #ffb347, 0 0 60px #ff6f00, 0 0 90px #ffb347;
     transition: all 0.45s ease;
     user-select: none;
     cursor: pointer;
@@ -194,24 +150,7 @@
     animation: gradientMove 8s ease infinite;
     filter: drop-shadow(0 0 10px #ffb347);
   }
-  .btn:hover {
-    filter: drop-shadow(0 0 30px #ffb347);
-    transform: scale(1.15);
-  }
-  @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Fade & slide in animation */
-  @keyframes fadeSlideIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
+  @keyframes fadeSlideIn { to { opacity: 1; transform: translateY(0); } }
   footer {
     text-align: center;
     padding: 26px 12px;
@@ -221,33 +160,6 @@
     letter-spacing: 1px;
     user-select: none;
     border-top: 1px solid #222;
-  }
-
-  /* Responsividade */
-  @media (max-width: 880px) {
-    main {
-      margin: -80px 22px 50px;
-      padding: 40px 30px 60px;
-    }
-    main h2 {
-      font-size: 2.2rem;
-    }
-    main p {
-      font-size: 1.15rem;
-    }
-    .cards {
-      flex-direction: column;
-      align-items: center;
-    }
-    .card {
-      max-width: 90%;
-      flex-basis: auto;
-    }
-    .btn {
-      max-width: 90%;
-      font-size: 1.4rem;
-      padding: 20px 45px;
-    }
   }
 </style>
 </head>
@@ -259,45 +171,67 @@
   <main>
     <section>
       <h2>Domine com Segurança e Discrição</h2>
-      <p>
-        Nosso ModMenu oferece proteção robusta e desempenho confiável, ideal para jogadores que buscam vantagens sem expor sua conta. Jogue com confiança total!
-      </p>
+      <p>Nosso ModMenu oferece proteção robusta e desempenho confiável, ideal para jogadores que buscam vantagens sem expor sua conta. Jogue com confiança total!</p>
     </section>
 
     <section>
       <h2>Recursos Avançados</h2>
       <div class="cards">
-
-        <div class="card" title="Indetectável – anti‑ban integrado">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm-1 15l-5-5 1.414-1.414L11 14.172l7.586-7.586L20 8z"/></svg>
-          <p>Indetectável – anti‑ban integrado</p>
-        </div>
-
-        <div class="card" title="Spoofer pós‑fechamento do jogo para proteger sua conta">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm-1 15l-5-5 1.414-1.414L11 14.172l7.586-7.586L20 8z"/></svg>
-          <p>Spoofer pós‑fechamento do jogo para proteger sua conta</p>
-        </div>
-
-        <div class="card" title="Bloqueio de Anti‑Cheat & criptografia segura">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm-1 15l-5-5 1.414-1.414L11 14.172l7.586-7.586L20 8z"/></svg>
-          <p>Bloqueio de Anti‑Cheat & criptografia segura</p>
-        </div>
-
-        <div class="card" title="Engenharia reversa profissional">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm-1 15l-5-5 1.414-1.414L11 14.172l7.586-7.586L20 8z"/></svg>
-          <p>Engenharia reversa profissional</p>
-        </div>
-
-        <div class="card" title="Apagador de rastros para sua privacidade total">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm-1 15l-5-5 1.414-1.414L11 14.172l7.586-7.586L20 8z"/></svg>
-          <p>Apagador de rastros para sua privacidade total</p>
-        </div>
-
+        <div class="card"><p>Indetectável – anti-ban integrado</p></div>
+        <div class="card"><p>Spoofer pós-fechamento do jogo para proteger sua conta</p></div>
+        <div class="card"><p>Bloqueio de Anti-Cheat & criptografia segura</p></div>
+        <div class="card"><p>Engenharia reversa profissional</p></div>
+        <div class="card"><p>Apagador de rastros para sua privacidade total</p></div>
       </div>
     </section>
 
+    <!-- NOVA SEÇÃO -->
     <section>
-      <a href="https://discord.gg/cEncAmHR" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Entrar no Discord">Entrar no Discord</a>
+      <h2>Informações e Recursos</h2>
+      <p><strong>Contatos / Acessos</strong><br>
+        nacih99335@balincs.com<br>
+        midogo4069@foboxs.com wsda<br>
+        rigaye5625@hostbyt.com<br>
+        tftest1 pw = Cr75united@</p>
+
+      <p><strong>ESP Features</strong><br>
+        Team / Enemy / Weapon / Planted C4 / AI Zombie, Box [2D / 3D / Corners], Line [Bot / Top / Center], Health [Bar / Text], Bone, Name, Has C4, Distance</p>
+
+      <p><strong>Visual Features</strong><br>CrossHair</p>
+
+      <p><strong>Aimbot Features</strong><br>
+        Enable, Use 360, Use FOV, Use Smoothness, Draw Target, Mode [Nearest Crosshair / Distance], Weapon Aim Smoothness [Sniper, Rifle, SMG, Pistol, etc.], ZA/AI Mode Compatibility</p>
+
+      <p><strong>Movement Features</strong><br>
+        Speed Shift [Adjustable], Jump Hacks [Unli Jump / Super Jump], Bunny Hop, Walk Through Walls</p>
+
+      <p><strong>Teleport Features</strong><br>Save / Load Position</p>
+
+      <p><strong>Player Features</strong><br>
+        Camera Mode, Anti AFK, Anti Flash, Anti Smoke, Anti Grenade</p>
+
+      <p><strong>Weapon Features</strong><br>
+        Fast Reload, Fast Melee, Fast Change, Fast Defuse, Weapon Recoil</p>
+
+      <p><strong>ZA/AI Mode Features</strong><br>Double Weapon Damage</p>
+
+      <p><strong>Zombie Mode</strong><br>Unlock All Zombie / Mutant</p>
+
+      <p><strong>Settings</strong><br>
+        Disable Drawing, Save / Load / Share / Upload Configuration, Custom Show / Hide Menu Key</p>
+
+      <p><strong>Extra Features</strong><br>Anti Screenshot, Live Stream Proof</p>
+
+      <p><strong>Compatibilidade de Sistema</strong><br>
+        Windows Home, Windows Enterprise, Windows Pro (Recomendado), Windows Ghost Spectre</p>
+
+      <p><strong>Versões Suportadas</strong><br>
+        Windows 10 (20H2, 21H1, 21H2, 22H2, 23H2) e Windows 11 (21H2, 22H2, 23H2, 24H2)<br>
+        <em>Não suporta PCs com softwares de restauração de sistema (ex: DeepFreeze, Shadow Mode)</em></p>
+    </section>
+
+    <section>
+      <a href="https://discord.gg/cEncAmHR" target="_blank" class="btn">Entrar no Discord</a>
     </section>
   </main>
 
