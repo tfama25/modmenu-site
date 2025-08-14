@@ -1,242 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ModMenu Crossfire AL</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;600&display=swap');
-
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #121b2c, #1e2a47);
-    color: #e0e6f1;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    position: relative;
-  }
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 20% 30%, #ff6f00aa 3%, transparent 30%),
-                radial-gradient(circle at 80% 70%, #ffb347aa 4%, transparent 40%);
-    animation: moveBackground 20s linear infinite;
-    z-index: -2;
-  }
-  @keyframes moveBackground {
-    0% { background-position: 20% 30%, 80% 70%; }
-    50% { background-position: 25% 35%, 75% 65%; }
-    100% { background-position: 20% 30%, 80% 70%; }
-  }
-  header {
-    position: relative;
-    padding: 90px 20px 110px;
-    background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-    box-shadow: inset 0 0 120px rgba(0,0,0,0.8);
-    text-align: center;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255,111,0,0.75) 0%, rgba(30,41,71,0.85) 100%);
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-    z-index: 0;
-  }
-  header h1 {
-    position: relative;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 4.6rem;
-    color: #ff9c1a;
-    text-shadow: 0 0 20px #ff9c1a, 0 0 50px #ff6f00, 0 0 80px #ffb347;
-    letter-spacing: 7px;
-    z-index: 1;
-    animation: fadeSlideIn 1.6s ease forwards;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  main {
-    max-width: 980px;
-    margin: -110px auto 60px auto;
-    padding: 50px 40px 70px;
-    background: rgba(30, 41, 71, 0.75);
-    border-radius: 32px;
-    box-shadow: 0 10px 40px rgba(255,111,0,0.3), inset 0 0 45px rgba(255,140,0,0.2);
-    backdrop-filter: blur(20px);
-    color: #e0e6f1dd;
-    animation: fadeSlideIn 1.6s ease 0.8s forwards;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  main section { margin-bottom: 50px; }
-  main h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
-    color: #ffa726;
-    border-bottom: 4px solid #ffb347;
-    padding-bottom: 14px;
-    margin-bottom: 32px;
-    letter-spacing: 3.5px;
-  }
-  main p {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    max-width: 820px;
-    margin-bottom: 40px;
-    color: #f0f0f0dd;
-  }
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 28px;
-    justify-content: center;
-  }
-  .card {
-    background: rgba(255,111,0,0.12);
-    border: 2.5px solid rgba(255,111,0,0.35);
-    border-radius: 28px;
-    box-shadow: 0 0 30px rgba(255,111,0,0.22);
-    padding: 35px 28px 38px;
-    flex: 1 1 300px;
-    max-width: 340px;
-    color: #fff;
-    transition: transform 0.5s cubic-bezier(.5,1.5,.5,1), box-shadow 0.5s ease;
-    cursor: default;
-    backdrop-filter: blur(25px);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    animation: fadeSlideIn 1.6s ease 1.4s forwards;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  .card p {
-    font-weight: 700;
-    font-size: 1.15rem;
-    line-height: 1.3;
-    user-select: none;
-  }
-  .btn {
-    display: inline-block;
-    background: linear-gradient(60deg, #ff9c1a, #ffb347, #ffa500, #ff6f00);
-    background-size: 400% 400%;
-    color: #121212;
-    font-weight: 900;
-    font-size: 1.6rem;
-    padding: 22px 72px;
-    border-radius: 80px;
-    text-decoration: none;
-    box-shadow: 0 0 30px #ffb347, 0 0 60px #ff6f00, 0 0 90px #ffb347;
-    transition: all 0.45s ease;
-    user-select: none;
-    cursor: pointer;
-    margin: 0 auto;
-    display: block;
-    max-width: 320px;
-    text-align: center;
-    animation: gradientMove 8s ease infinite;
-    filter: drop-shadow(0 0 10px #ffb347);
-  }
-  @keyframes fadeSlideIn { to { opacity: 1; transform: translateY(0); } }
-  footer {
-    text-align: center;
-    padding: 26px 12px;
-    background: #121b2c;
-    color: #666;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    user-select: none;
-    border-top: 1px solid #222;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recursos e Funcionalidades</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+    }
+    h1 {
+      color: #ff4444;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #ff4444;
+      margin-top: 0;
+    }
+    h3 {
+      color: #ff8888;
+      margin-top: 30px;
+    }
+    ul {
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    p.aviso {
+      color: #ff5555;
+      font-weight: bold;
+      margin-top: 30px;
+      background: rgba(255,85,85,0.1);
+      padding: 10px;
+      border-left: 4px solid #ff5555;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>ModMenu Crossfire AL</h1>
+    <h1>Recursos e Funcionalidades</h1>
   </header>
 
-  <main>
-    <section>
-      <h2>Domine com Segurança e Discrição</h2>
-      <p>Nosso ModMenu oferece proteção robusta e desempenho confiável, ideal para jogadores que buscam vantagens sem expor sua conta. Jogue com confiança total!</p>
-    </section>
+  <section>
+    <h2>ESP Features</h2>
+    <ul>
+      <li>Team / Enemy / Weapon / Planted C4 / AI Zombie</li>
+      <li>Box [ 2D / 3D / Corners ]</li>
+      <li>Line [ Bot / Top / Center ]</li>
+      <li>Health [ Bar / Text ]</li>
+      <li>Bone</li>
+      <li>Name</li>
+      <li>Has C4</li>
+      <li>Distance</li>
+    </ul>
 
-    <section>
-      <h2>Recursos Avançados</h2>
-      <div class="cards">
-        <div class="card"><p>Indetectável – anti-ban integrado</p></div>
-        <div class="card"><p>Spoofer pós-fechamento do jogo para proteger sua conta</p></div>
-        <div class="card"><p>Bloqueio de Anti-Cheat & criptografia segura</p></div>
-        <div class="card"><p>Engenharia reversa profissional</p></div>
-        <div class="card"><p>Apagador de rastros para sua privacidade total</p></div>
-      </div>
-    </section>
+    <h2>Visual Features</h2>
+    <ul><li>CrossHair</li></ul>
 
-    <!-- NOVA SEÇÃO -->
-    <section>
-      <h2>Informações e Recursos</h2>
-      <p><strong>Contatos / Acessos</strong><br>
-        nacih99335@balincs.com<br>
-        midogo4069@foboxs.com wsda<br>
-        rigaye5625@hostbyt.com<br>
-        tftest1 pw = Cr75united@</p>
+    <h2>Aimbot Features</h2>
+    <ul>
+      <li>Enable</li>
+      <li>Use 360</li>
+      <li>Use FOV</li>
+      <li>Use Smoothness</li>
+      <li>Draw Target</li>
+      <li>Mode [ Nearest Crosshair / Distance ]</li>
+      <li>Weapon Aim Smoothness [ Sniper, Rifle, SMG, Pistol, etc. ]</li>
+      <li>ZA/AI Mode Compatibility</li>
+    </ul>
 
-      <p><strong>ESP Features</strong><br>
-        Team / Enemy / Weapon / Planted C4 / AI Zombie, Box [2D / 3D / Corners], Line [Bot / Top / Center], Health [Bar / Text], Bone, Name, Has C4, Distance</p>
+    <h2>Movement Features</h2>
+    <ul>
+      <li>Speed Shift [ Adjustable ]</li>
+      <li>Jump Hacks [ Unli Jump / Super Jump ]</li>
+      <li>Bunny Hop</li>
+      <li>Walk Through Walls</li>
+    </ul>
 
-      <p><strong>Visual Features</strong><br>CrossHair</p>
+    <h2>Teleport Features</h2>
+    <ul><li>Save / Load Position</li></ul>
 
-      <p><strong>Aimbot Features</strong><br>
-        Enable, Use 360, Use FOV, Use Smoothness, Draw Target, Mode [Nearest Crosshair / Distance], Weapon Aim Smoothness [Sniper, Rifle, SMG, Pistol, etc.], ZA/AI Mode Compatibility</p>
+    <h2>Player Features</h2>
+    <ul>
+      <li>Camera Mode</li>
+      <li>Anti AFK</li>
+      <li>Anti Flash</li>
+      <li>Anti Smoke</li>
+      <li>Anti Grenade</li>
+    </ul>
 
-      <p><strong>Movement Features</strong><br>
-        Speed Shift [Adjustable], Jump Hacks [Unli Jump / Super Jump], Bunny Hop, Walk Through Walls</p>
+    <h2>Weapon Features</h2>
+    <ul>
+      <li>Fast Reload</li>
+      <li>Fast Melee</li>
+      <li>Fast Change</li>
+      <li>Fast Defuse</li>
+      <li>Weapon Recoil</li>
+    </ul>
 
-      <p><strong>Teleport Features</strong><br>Save / Load Position</p>
+    <h2>ZA/AI Mode Features</h2>
+    <ul><li>Double Weapon Damage</li></ul>
 
-      <p><strong>Player Features</strong><br>
-        Camera Mode, Anti AFK, Anti Flash, Anti Smoke, Anti Grenade</p>
+    <h2>Zombie Mode</h2>
+    <ul><li>Unlock All Zombie / Mutant</li></ul>
 
-      <p><strong>Weapon Features</strong><br>
-        Fast Reload, Fast Melee, Fast Change, Fast Defuse, Weapon Recoil</p>
+    <h2>Settings</h2>
+    <ul>
+      <li>Disable Drawing</li>
+      <li>Save Configuration</li>
+      <li>Load Configuration</li>
+      <li>Share Configuration</li>
+      <li>Upload Configuration</li>
+      <li>Custom Show / Hide Menu Key</li>
+    </ul>
 
-      <p><strong>ZA/AI Mode Features</strong><br>Double Weapon Damage</p>
+    <h2>Extra Features</h2>
+    <ul>
+      <li>Anti Screenshot</li>
+      <li>Live Stream Proof</li>
+    </ul>
 
-      <p><strong>Zombie Mode</strong><br>Unlock All Zombie / Mutant</p>
+    <h2>Operating System</h2>
+    <ul>
+      <li>Windows Home</li>
+      <li>Windows Enterprise</li>
+      <li>Windows Pro (Recommended)</li>
+      <li>Windows Ghost Spectre</li>
+    </ul>
 
-      <p><strong>Settings</strong><br>
-        Disable Drawing, Save / Load / Share / Upload Configuration, Custom Show / Hide Menu Key</p>
+    <h2>Windows Version</h2>
+    <ul>
+      <li>Windows 10 Version 20H2</li>
+      <li>Windows 10 Version 21H1</li>
+      <li>Windows 10 Version 21H2</li>
+      <li>Windows 10 Version 22H2</li>
+      <li>Windows 10 Version 23H2</li>
+      <li>Windows 11 Version 21H2</li>
+      <li>Windows 11 Version 22H2</li>
+      <li>Windows 11 Version 23H2</li>
+      <li>Windows 11 Version 24H2</li>
+    </ul>
 
-      <p><strong>Extra Features</strong><br>Anti Screenshot, Live Stream Proof</p>
-
-      <p><strong>Compatibilidade de Sistema</strong><br>
-        Windows Home, Windows Enterprise, Windows Pro (Recomendado), Windows Ghost Spectre</p>
-
-      <p><strong>Versões Suportadas</strong><br>
-        Windows 10 (20H2, 21H1, 21H2, 22H2, 23H2) e Windows 11 (21H2, 22H2, 23H2, 24H2)<br>
-        <em>Não suporta PCs com softwares de restauração de sistema (ex: DeepFreeze, Shadow Mode)</em></p>
-    </section>
-
-    <section>
-      <a href="https://discord.gg/cEncAmHR" target="_blank" class="btn">Entrar no Discord</a>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 ModMenu Crossfire AL. Todos os direitos reservados.
-  </footer>
+    <p class="aviso">
+      ❌ Não suporta PCs com softwares de restauração de sistema (Ex.: DeepFreeze, Shadow Mode)
+    </p>
+  </section>
 </body>
 </html>
